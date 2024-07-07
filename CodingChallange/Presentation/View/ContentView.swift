@@ -17,7 +17,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-        
+
 
 import SwiftUI
 
@@ -30,8 +30,17 @@ struct ContentView: View {
             if vm.loading {
                 ProgressView()
             } else {
-                List(vm.connectivities) { connectivity in
-                    ConnectivityRow(connectivity: connectivity)
+                NavigationSplitView {
+                    List(vm.connectivities) { connectivity in
+                        NavigationLink {
+                            ConnectivityDetail(connectivity: connectivity)
+                        } label: {
+                            ConnectivityRow(connectivity: connectivity)
+                        }
+                    }
+                    .navigationTitle("Lightning")
+                } detail: {
+                    Text("Selecione")
                 }
             }
         }

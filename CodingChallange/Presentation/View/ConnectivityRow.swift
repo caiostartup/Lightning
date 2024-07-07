@@ -17,19 +17,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-        
+
 
 import SwiftUI
 
 
 struct ConnectivityRow: View {
     var connectivity: ConnectivityVH
-
-
+    
     var body: some View {
-        VStack {
+        VStack(alignment :.leading) {
             Text(connectivity.alias)
+                .font(.headline)
+                .foregroundStyle(.primary)
             Text(String(connectivity.capacity))
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
         }
     }
 }
