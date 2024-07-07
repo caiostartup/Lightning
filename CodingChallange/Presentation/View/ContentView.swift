@@ -22,12 +22,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var vm = ConnectivityVM()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            if vm.loading {
+                ProgressView()
+            } else {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Hello, world!")
+            }
+        }
+        .onAppear{
+            vm.requestPremierLeagueData()
         }
         .padding()
     }

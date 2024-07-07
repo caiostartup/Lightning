@@ -43,7 +43,7 @@ protocol ConnectivityVH {
         
 //    * city: A cidade onde esse node está localizado (pode não existir).
 //    * No idioma do nome da cidade e país, utiliza o pt-BR se disponível, caso contrário, use en. Não é necessário suportar internacionalização.
-    var city: String? { get }
+    var city: [String: String]? { get }
         
 //    * country: O país onde esse node está localizado.
     var country: [String: String]? { get }

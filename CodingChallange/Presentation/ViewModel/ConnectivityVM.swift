@@ -20,3 +20,27 @@
         
 
 import Foundation
+import Combine
+
+class ConnectivityVM: ObservableObject {
+
+    var cancelable = Set<AnyCancellable>()
+
+    @Published var connectivities : [ConnectivityVH] = []
+    @Published var loading = false
+    
+    private var repository: LightningRepository = LightningDataSource()
+    
+    public func requestPremierLeagueData() {
+        print("RECEIVE VALUE COMPLETED")
+        loading = true
+        repository.getConections()
+            .sink(receiveCompletion: { result in
+
+            }, receiveValue: { [self] values in
+                loading = false
+                self.connectivities = values
+            })
+            .store(in: &cancelable)
+    }
+}

@@ -28,6 +28,8 @@
 		F011DC642C3B279800883FCB /* LightningRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC632C3B279800883FCB /* LightningRepository.swift */; };
 		F011DC662C3B285A00883FCB /* ConnectivityVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC652C3B285A00883FCB /* ConnectivityVH.swift */; };
 		F011DC682C3B2D2000883FCB /* CodingChallangeIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC672C3B2D2000883FCB /* CodingChallangeIntegrationTests.swift */; };
+		F011DC6B2C3B3AC000883FCB /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC6A2C3B3AC000883FCB /* ErrorModel.swift */; };
+		F011DC6D2C3B3B2F00883FCB /* ConnectivityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC6C2C3B3B2F00883FCB /* ConnectivityVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		F011DC632C3B279800883FCB /* LightningRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningRepository.swift; sourceTree = "<group>"; };
 		F011DC652C3B285A00883FCB /* ConnectivityVH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityVH.swift; sourceTree = "<group>"; };
 		F011DC672C3B2D2000883FCB /* CodingChallangeIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingChallangeIntegrationTests.swift; sourceTree = "<group>"; };
+		F011DC6A2C3B3AC000883FCB /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		F011DC6C2C3B3B2F00883FCB /* ConnectivityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +132,6 @@
 				F011DC422C3B0E5400883FCB /* Domain */,
 				F011DC1C2C39D7EC00883FCB /* Preview Content */,
 				F011DC162C39D7E900883FCB /* CodingChallangeApp.swift */,
-				F011DC182C39D7E900883FCB /* ContentView.swift */,
 				F011DC5A2C3B243500883FCB /* Supporting Files */,
 			);
 			path = CodingChallange;
@@ -163,18 +166,19 @@
 		F011DC402C3B0DFF00883FCB /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				F011DC442C3B0EF700883FCB /* Data Source */,
-				F011DC432C3B0EEE00883FCB /* Repository */,
-				F011DC4F2C3B1D1A00883FCB /* Connectivity.swift */,
+				F011DC692C3B31A400883FCB /* Models */,
+				F011DC442C3B0EF700883FCB /* Data Sources */,
+				F011DC432C3B0EEE00883FCB /* Repositories */,
 			);
 			path = Data;
 			sourceTree = "<group>";
 		};
-		F011DC412C3B0E2400883FCB /* UI */ = {
+		F011DC412C3B0E2400883FCB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F011DC182C39D7E900883FCB /* ContentView.swift */,
 			);
-			path = UI;
+			path = View;
 			sourceTree = "<group>";
 		};
 		F011DC422C3B0E5400883FCB /* Domain */ = {
@@ -185,28 +189,28 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		F011DC432C3B0EEE00883FCB /* Repository */ = {
+		F011DC432C3B0EEE00883FCB /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
 				F011DC632C3B279800883FCB /* LightningRepository.swift */,
 			);
-			path = Repository;
+			path = Repositories;
 			sourceTree = "<group>";
 		};
-		F011DC442C3B0EF700883FCB /* Data Source */ = {
+		F011DC442C3B0EF700883FCB /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
 				F011DC562C3B1EC700883FCB /* LightningService.swift */,
 				F011DC582C3B212B00883FCB /* LightningDataSource.swift */,
 			);
-			path = "Data Source";
+			path = "Data Sources";
 			sourceTree = "<group>";
 		};
 		F011DC452C3B0FCB00883FCB /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				F011DC462C3B0FD900883FCB /* ViewModel */,
-				F011DC412C3B0E2400883FCB /* UI */,
+				F011DC412C3B0E2400883FCB /* View */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -214,6 +218,7 @@
 		F011DC462C3B0FD900883FCB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F011DC6C2C3B3B2F00883FCB /* ConnectivityVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -232,6 +237,15 @@
 				F011DC5B2C3B24A100883FCB /* connectivity.json */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F011DC692C3B31A400883FCB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F011DC4F2C3B1D1A00883FCB /* Connectivity.swift */,
+				F011DC6A2C3B3AC000883FCB /* ErrorModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,7 +400,9 @@
 				F011DC572C3B1EC700883FCB /* LightningService.swift in Sources */,
 				F011DC172C39D7E900883FCB /* CodingChallangeApp.swift in Sources */,
 				F011DC502C3B1D1A00883FCB /* Connectivity.swift in Sources */,
+				F011DC6D2C3B3B2F00883FCB /* ConnectivityVM.swift in Sources */,
 				F011DC662C3B285A00883FCB /* ConnectivityVH.swift in Sources */,
+				F011DC6B2C3B3AC000883FCB /* ErrorModel.swift in Sources */,
 				F011DC642C3B279800883FCB /* LightningRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
