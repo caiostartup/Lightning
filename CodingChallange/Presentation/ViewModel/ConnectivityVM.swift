@@ -1,6 +1,6 @@
 //
 //
-// MempoolRepository.swift
+// ConnectivityVM.swift
 // CodingChallange
 //
 // Created by Caio Mansho on 07/07/24
@@ -20,9 +20,3 @@
         
 
 import Foundation
-
-protocol LightningRepository {
-    
-    func getConections() -> [Connectivity]?;
-
-}
