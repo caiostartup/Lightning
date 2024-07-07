@@ -24,7 +24,7 @@ import Moya
 
 public struct LightningDataSource: LightningRepository {
     
-    public func getConection() -> Connectivity? {
+    public func getConections() -> [Connectivity]? {
         // Tuck this away somewhere where it'll be visible to anyone who wants to use it
         let provider: MoyaProvider<LightningService> = MoyaProvider(endpointClosure: { (target: LightningService) -> Endpoint in
             return Endpoint(url: URL(target: target).absoluteString, sampleResponseClosure: {.networkResponse(200, target.sampleData)}, method: target.method, task: target.task, httpHeaderFields: target.headers)

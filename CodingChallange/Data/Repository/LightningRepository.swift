@@ -23,6 +23,6 @@ import Foundation
 
 protocol LightningRepository {
     
-    func getConection() -> Connectivity?;
+    func getConections() -> [Connectivity]?;
 
 }

@@ -27,6 +27,7 @@
 		F011DC622C3B263500883FCB /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F011DC612C3B263500883FCB /* Moya */; };
 		F011DC642C3B279800883FCB /* LightningRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC632C3B279800883FCB /* LightningRepository.swift */; };
 		F011DC662C3B285A00883FCB /* ConnectivityVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC652C3B285A00883FCB /* ConnectivityVH.swift */; };
+		F011DC682C3B2D2000883FCB /* CodingChallangeIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC672C3B2D2000883FCB /* CodingChallangeIntegrationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		F011DC5B2C3B24A100883FCB /* connectivity.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = connectivity.json; sourceTree = "<group>"; };
 		F011DC632C3B279800883FCB /* LightningRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningRepository.swift; sourceTree = "<group>"; };
 		F011DC652C3B285A00883FCB /* ConnectivityVH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityVH.swift; sourceTree = "<group>"; };
+		F011DC672C3B2D2000883FCB /* CodingChallangeIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingChallangeIntegrationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				F011DC272C39D7ED00883FCB /* CodingChallangeTests.swift */,
+				F011DC672C3B2D2000883FCB /* CodingChallangeIntegrationTests.swift */,
 			);
 			path = CodingChallangeTests;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F011DC682C3B2D2000883FCB /* CodingChallangeIntegrationTests.swift in Sources */,
 				F011DC282C39D7ED00883FCB /* CodingChallangeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
