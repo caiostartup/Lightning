@@ -48,7 +48,7 @@ public class LightningDataSource: LightningRepository {
                         let result = try JSONDecoder().decode([Connectivity].self, from: response.data)
                         promise(.success(result))
                     } catch {
-                        print(error)
+                        promise(.failure(error))
                     }
                 })
                 .store(in: &LightningDataSource.cancelables)
