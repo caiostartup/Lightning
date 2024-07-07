@@ -21,31 +21,50 @@
 
 import Foundation
 
-protocol ConnectivityVH {
+struct ConnectivityVH: Hashable, Identifiable {
+    
+    var id: String {
+        get {
+            return publicKey
+        }
+    }
     
 //    * publicKey: A chave pública que identifica o node na rede.
-    var publicKey: String { get }
+    let publicKey: String
     
 //    * alias: Um nome definido pelo próprio node.
-    var alias:  String { get }
+    let alias:  String
     
 //    * channels: A quantidade de canais que o node possui.
-    var channels: Int { get }
+    let channels: Int
     
 //    * capacity: A quantidade de Bitcoin (em sats) que o node possui nos canais.
-    var capacity: Int { get }
+    let capacity: Int
     
 //    * firstSeen: A data e hora de quando esse node se tornou público.
-    var firstSeen: Int { get }
+    let firstSeen: Int
     
 //    * updatedAt: A data e hora de quando as informações do node foram atualizadas pela última vez.
-    var updatedAt: Int { get }
+    let updatedAt: Int
         
 //    * city: A cidade onde esse node está localizado (pode não existir).
 //    * No idioma do nome da cidade e país, utiliza o pt-BR se disponível, caso contrário, use en. Não é necessário suportar internacionalização.
-    var city: [String: String]? { get }
+    let city: [String: String]?
         
 //    * country: O país onde esse node está localizado.
-    var country: [String: String]? { get }
+    let country: [String: String]?
+    
+    public static func mockConnectivity() -> ConnectivityVH {
+        ConnectivityVH(
+            publicKey: "publicKey",
+            alias: "alias",
+            channels: 111,
+            capacity: 222,
+            firstSeen: 1121212121,
+            updatedAt: 1212121,
+            city: [:],
+            country: [:]
+        )
+    }
     
 }

@@ -17,15 +17,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-        
+
 
 import Foundation
 import Combine
 
 class ConnectivityVM: ObservableObject {
-
+    
     var cancelable = Set<AnyCancellable>()
-
+    
     @Published var connectivities : [ConnectivityVH] = []
     @Published var loading = false
     
@@ -36,11 +36,19 @@ class ConnectivityVM: ObservableObject {
         loading = true
         repository.getConections()
             .sink(receiveCompletion: { result in
-
+                
             }, receiveValue: { [self] values in
                 loading = false
-                self.connectivities = values
-            })
-            .store(in: &cancelable)
+                self.connectivities = values.map({ ConnectivityVH(
+                    publicKey: $0.publicKey,
+                    alias: $0.alias,
+                    channels: $0.channels,
+                    capacity: $0.capacity,
+                    firstSeen: $0.firstSeen,
+                    updatedAt: $0.updatedAt,
+                    city: $0.city,
+                    country: $0.country
+                )})
+            }).store(in: &cancelable)
     }
 }

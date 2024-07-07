@@ -1,9 +1,9 @@
 //
 //
-// ContentView.swift
+// ConnectivityRow.swift
 // CodingChallange
 //
-// Created by Caio Mansho on 06/07/24
+// Created by Caio Mansho on 07/07/24
 // Copyright © 2024 Caio Mansho. All rights reserved.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,27 +21,20 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    
-    @StateObject var vm = ConnectivityVM()
-    
+
+struct ConnectivityRow: View {
+    var connectivity: ConnectivityVH
+
+
     var body: some View {
         VStack {
-            if vm.loading {
-                ProgressView()
-            } else {
-                List(vm.connectivities) { connectivity in
-                    ConnectivityRow(connectivity: connectivity)
-                }
-            }
+            Text(connectivity.alias)
+            Text(String(connectivity.capacity))
         }
-        .onAppear{
-            vm.requestPremierLeagueData()
-        }
-        .padding()
     }
 }
 
+
 #Preview {
-    ContentView()
+    ConnectivityRow(connectivity: ConnectivityVH.mockConnectivity())
 }

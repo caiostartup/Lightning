@@ -21,7 +21,7 @@
 
 import Foundation
 
-public struct Connectivity: Codable, ConnectivityVH {
+public struct Connectivity: Codable {
     let publicKey: String
     let alias:  String
     let channels: Int
@@ -32,4 +32,5 @@ public struct Connectivity: Codable, ConnectivityVH {
     let country: [String: String]?
     let iso_code: String?
     let subdivision: String?
+    
 }
