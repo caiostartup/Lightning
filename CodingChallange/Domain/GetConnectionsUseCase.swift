@@ -37,12 +37,11 @@ struct GetConnectionsUseCase {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
     }
     
-    
-    func getConections() async throws -> [ConnectivityVH] {
+    func getConections() async throws -> [ConnectivitySH] {
         try await repository.getConections()
             .value
             .sorted { $0.capacity > $1.capacity }
-            .map { ConnectivityVH(
+            .map { ConnectivitySH(
                 publicKey: $0.publicKey,
                 alias: $0.alias,
                 channels: $0.channels,

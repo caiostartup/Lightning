@@ -26,7 +26,7 @@ class ConnectivityVM: ObservableObject {
     
     var cancelable = Set<AnyCancellable>()
     
-    @Published var connectivities : [ConnectivityVH] = []
+    @Published var connectivities : [ConnectivitySH] = []
     @Published var loading = false
     @Published var error: String? = nil
     

@@ -38,6 +38,11 @@ struct ContentView: View {
                             ConnectivityRow(connectivity: connectivity)
                         }
                     }
+                    .refreshable {
+                        Task {
+                            await vm.requestPremierLeagueData()
+                        }
+                    }
                     .navigationTitle("Lightning")
                 } detail: {
                     Text("Selecione")

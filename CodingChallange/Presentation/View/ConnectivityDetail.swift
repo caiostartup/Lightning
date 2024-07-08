@@ -37,7 +37,7 @@ struct ConnectivityDetailRow: View {
 
 struct ConnectivityDetail: View {
     
-    var connectivity: ConnectivityVH
+    var connectivity: ConnectivitySH
     
     var body: some View {
         ScrollView {
@@ -70,5 +70,5 @@ struct ConnectivityDetail: View {
 
 
 #Preview {
-    ConnectivityDetail(connectivity: ConnectivityVH.mockConnectivity())
+    ConnectivityDetail(connectivity: ConnectivitySH.mockConnectivity())
 }

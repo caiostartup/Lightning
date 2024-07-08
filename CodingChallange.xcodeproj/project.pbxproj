@@ -26,7 +26,7 @@
 		F011DC602C3B263500883FCB /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F011DC5F2C3B263500883FCB /* CombineMoya */; };
 		F011DC622C3B263500883FCB /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F011DC612C3B263500883FCB /* Moya */; };
 		F011DC642C3B279800883FCB /* LightningRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC632C3B279800883FCB /* LightningRepository.swift */; };
-		F011DC662C3B285A00883FCB /* ConnectivityVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC652C3B285A00883FCB /* ConnectivityVH.swift */; };
+		F011DC662C3B285A00883FCB /* ConnectivitySH.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC652C3B285A00883FCB /* ConnectivitySH.swift */; };
 		F011DC682C3B2D2000883FCB /* CodingChallangeIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC672C3B2D2000883FCB /* CodingChallangeIntegrationTests.swift */; };
 		F011DC6B2C3B3AC000883FCB /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC6A2C3B3AC000883FCB /* ErrorModel.swift */; };
 		F011DC6D2C3B3B2F00883FCB /* ConnectivityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC6C2C3B3B2F00883FCB /* ConnectivityVM.swift */; };
@@ -68,7 +68,7 @@
 		F011DC582C3B212B00883FCB /* LightningDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningDataSource.swift; sourceTree = "<group>"; };
 		F011DC5B2C3B24A100883FCB /* connectivity.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = connectivity.json; sourceTree = "<group>"; };
 		F011DC632C3B279800883FCB /* LightningRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningRepository.swift; sourceTree = "<group>"; };
-		F011DC652C3B285A00883FCB /* ConnectivityVH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityVH.swift; sourceTree = "<group>"; };
+		F011DC652C3B285A00883FCB /* ConnectivitySH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivitySH.swift; sourceTree = "<group>"; };
 		F011DC672C3B2D2000883FCB /* CodingChallangeIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingChallangeIntegrationTests.swift; sourceTree = "<group>"; };
 		F011DC6A2C3B3AC000883FCB /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		F011DC6C2C3B3B2F00883FCB /* ConnectivityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityVM.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			children = (
 				F011DC792C3B6BD700883FCB /* Domain */,
 				F011DC452C3B0FCB00883FCB /* Presentation */,
-				F011DC652C3B285A00883FCB /* ConnectivityVH.swift */,
+				F011DC652C3B285A00883FCB /* ConnectivitySH.swift */,
 				F011DC402C3B0DFF00883FCB /* Data */,
 				F011DC1C2C39D7EC00883FCB /* Preview Content */,
 				F011DC162C39D7E900883FCB /* CodingChallangeApp.swift */,
@@ -412,7 +412,7 @@
 				F011DC172C39D7E900883FCB /* CodingChallangeApp.swift in Sources */,
 				F011DC502C3B1D1A00883FCB /* Connectivity.swift in Sources */,
 				F011DC6D2C3B3B2F00883FCB /* ConnectivityVM.swift in Sources */,
-				F011DC662C3B285A00883FCB /* ConnectivityVH.swift in Sources */,
+				F011DC662C3B285A00883FCB /* ConnectivitySH.swift in Sources */,
 				F011DC6B2C3B3AC000883FCB /* ErrorModel.swift in Sources */,
 				F011DC7B2C3B6BEB00883FCB /* GetConnectionsUseCase.swift in Sources */,
 				F011DC642C3B279800883FCB /* LightningRepository.swift in Sources */,

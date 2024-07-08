@@ -23,7 +23,7 @@ import SwiftUI
 
 
 struct ConnectivityRow: View {
-    var connectivity: ConnectivityVH
+    var connectivity: ConnectivitySH
     
     var body: some View {
         VStack(alignment :.leading) {
@@ -39,5 +39,5 @@ struct ConnectivityRow: View {
 
 
 #Preview {
-    ConnectivityRow(connectivity: ConnectivityVH.mockConnectivity())
+    ConnectivityRow(connectivity: ConnectivitySH.mockConnectivity())
 }

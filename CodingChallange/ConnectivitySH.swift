@@ -21,7 +21,7 @@
 
 import Foundation
 
-struct ConnectivityVH: Hashable, Identifiable {
+struct ConnectivitySH: Hashable, Identifiable {
     
     var id: String {
         get {
@@ -54,8 +54,8 @@ struct ConnectivityVH: Hashable, Identifiable {
 //    * country: O país onde esse node está localizado.
     let country: String
     
-    public static func mockConnectivity() -> ConnectivityVH {
-        ConnectivityVH(
+    public static func mockConnectivity() -> ConnectivitySH {
+        ConnectivitySH(
             publicKey: "publicKey",
             alias: "alias",
             channels: 111,
