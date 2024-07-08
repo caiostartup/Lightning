@@ -33,22 +33,38 @@ public class LightningDataSource: LightningRepository {
         return Endpoint(url: URL(target: target).absoluteString, sampleResponseClosure: {.networkResponse(200, target.sampleData)}, method: target.method, task: target.task, httpHeaderFields: target.headers)
     })
     
-    public func getConections() -> Future<[Connectivity], Error> {
-        Future<[Connectivity], Error> { [self] promise in
+    public func getConections() -> Future<[Connectivity], ErrorModel> {
+        Future<[Connectivity], ErrorModel> { [self] promise in
             provider.requestPublisher(.connectivity)
                 .sink(receiveCompletion: { completion in
-                    switch completion{
+                    switch completion {
+                    case .failure(let error):
+                        do {
+                            let json = try error.response?.mapJSON()
+                            debugPrint(json ?? "")
+                            promise(.failure(
+                                ErrorModel(
+                                    code: error.response?.statusCode ?? -1,
+                                    msg: json.debugDescription
+                                )
+                            ))
+                        } catch {
+                            debugPrint(error)
+                        }
                     case .finished:
-                        print("RECEIVE VALUE COMPLETED")
-                    case .failure:
-                        print("RECEIVE VALUE FAILED")
+                        debugPrint("Finished")
                     }
                 }, receiveValue: { response in
                     do {
                         let result = try JSONDecoder().decode([Connectivity].self, from: response.data)
                         promise(.success(result))
                     } catch {
-                        promise(.failure(error))
+                        promise(.failure(
+                            ErrorModel(
+                                code: response.statusCode,
+                                msg: error.localizedDescription
+                            )
+                        ))
                     }
                 })
                 .store(in: &LightningDataSource.cancelables)

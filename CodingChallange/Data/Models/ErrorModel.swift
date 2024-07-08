@@ -22,6 +22,6 @@
 import Foundation
 
 public struct ErrorModel: Codable, Error {
-    var code : String = ""
+    var code : Int = 0
     var msg : String? = ""
 }

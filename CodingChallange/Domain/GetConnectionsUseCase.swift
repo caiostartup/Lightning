@@ -34,7 +34,7 @@ struct GetConnectionsUseCase {
     private let dateFormatter =  DateFormatter()
     
     public init(){
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
     }
     
     func getConections() async throws -> [ConnectivitySH] {

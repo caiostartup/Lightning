@@ -35,14 +35,16 @@ final class CodingChallangeTests: XCTestCase {
 
     func testDataSource() throws {
         let stubbingProvider = MoyaProvider<LightningService>(stubClosure: MoyaProvider.immediatelyStub)
-    
+        let expectation = expectation(description: "LightningService request the Connectitivies and runs the callback closure")
+        
         stubbingProvider.request(.connectivity) { result in
             switch result {
             case let .success(moyaResponse):
                 do {
                     let response = try moyaResponse.filterSuccessfulStatusCodes()
-                    let data = try response.mapJSON()
-                    print(data)
+                    let data = try JSONDecoder().decode([Connectivity].self, from: response.data)
+                    XCTAssertTrue(data.count == 100)
+                    expectation.fulfill()
                 }
                 catch {
                     // show an error to your user
@@ -52,6 +54,14 @@ final class CodingChallangeTests: XCTestCase {
                 // TODO: handle the error == best. comment. ever.
             }
         }
+        
+        // 3. Wait for the expectation to be fulfilled
+        waitForExpectations(timeout: 3) { error in
+          if let error = error {
+            XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+          }
+        }
+        
         
     }
 

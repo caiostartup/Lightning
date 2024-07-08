@@ -33,12 +33,21 @@ final class CodingChallangeIntegrationTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testDataSource() throws {
+    func testDataSource() async throws {
         let repository: LightningRepository = LightningDataSource()
-        repository.getConections()
-        
+        let data = try await repository.getConections().value
+        XCTAssertTrue(data.count == 100)
     }
 
+    
+    func testUseCase() async throws {
+        let useCase = GetConnectionsUseCase()
+        let data = try await useCase.getConections()
+        XCTAssertTrue(data.count == 100)
+        XCTAssertTrue(data[0].capacity > data[1].capacity)
+        XCTAssertTrue(data[2].capacity > data[3].capacity)
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

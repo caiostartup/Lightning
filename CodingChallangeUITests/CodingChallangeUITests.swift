@@ -20,20 +20,21 @@
         
 
 import XCTest
+import SwiftUI
 
 final class CodingChallangeUITests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+    private var app: XCUIApplication!
+    
+    override func setUpWithError() throws { //Does this each time it starts the test
+         continueAfterFailure = false
+         app = XCUIApplication() // Initializes the XCTest app
+         app.launch() // Launches the app
+         
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDownWithError() throws { //Does this each time it ends the test
+         app = nil //Makes sure that the test wont have residual values, it will be torn down each time the funcion has finished
     }
 
     func testExample() throws {
@@ -43,6 +44,16 @@ final class CodingChallangeUITests: XCTestCase {
 
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    
+    func testSuggestedDynamicsTitleDisplay() { //Checks if the title is being presented
+         // Use the XCUIElementQuery to locate the title Text
+         let suggestedDynamicsTitleText = app.staticTexts["withAppTitle"]
+         
+         // Check if the title text is visible
+         XCTAssertTrue(suggestedDynamicsTitleText.exists)
+    }
+    
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {

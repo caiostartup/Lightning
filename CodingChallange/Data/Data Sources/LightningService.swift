@@ -51,7 +51,6 @@ extension LightningService: TargetType {
     var sampleData: Data {
         switch self {
         case .connectivity:
-            // Provided you have a file named accounts.json in your bundle.
             guard let url = Bundle.main.url(forResource: "connectivity", withExtension: "json"),
                 let data = try? Data(contentsOf: url) else {
                     return Data()

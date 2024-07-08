@@ -24,6 +24,6 @@ import Combine
 
 protocol LightningRepository {
     
-    func getConections() -> Future<[Connectivity], Error>
+    func getConections() -> Future<[Connectivity], ErrorModel>
 
 }

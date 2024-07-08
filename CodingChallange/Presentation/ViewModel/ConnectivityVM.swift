@@ -41,7 +41,11 @@ class ConnectivityVM: ObservableObject {
                 connectivities = fetchedData
             }
         } catch {
-            self.error = error.localizedDescription
+            if let errorModel = error as? ErrorModel {
+                self.error = errorModel.msg
+            } else {
+                self.error = error.localizedDescription
+            }
         }
     }
 }
