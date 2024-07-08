@@ -45,7 +45,6 @@ struct ConnectivityDetail: View {
             VStack(alignment: .leading) {
                 Text(connectivity.alias)
                     .font(.title)
-                
                 Divider()
                 ConnectivityDetailRow(title: "Key", desc: connectivity.publicKey)
                 Divider()

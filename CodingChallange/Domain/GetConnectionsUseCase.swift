@@ -31,6 +31,12 @@ public protocol GetConnectionsUseCaseProtocol {
 struct GetConnectionsUseCase {
     
     private var repository: LightningRepository = LightningDataSource()
+    private let dateFormatter =  DateFormatter()
+    
+    public init(){
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    }
+    
     
     func getConections() async throws -> [ConnectivityVH] {
         try await repository.getConections()
@@ -41,8 +47,8 @@ struct GetConnectionsUseCase {
                 alias: $0.alias,
                 channels: $0.channels,
                 capacity: Double($0.capacity) / 100000000.0,
-                firstSeen: DateFormatter().string(from: Date(timeIntervalSince1970: Double($0.firstSeen))),
-                updatedAt: DateFormatter().string(from: Date(timeIntervalSince1970: Double($0.updatedAt))),
+                firstSeen: dateFormatter.string(from: Date(timeIntervalSince1970: Double($0.firstSeen))),
+                updatedAt: dateFormatter.string(from: Date(timeIntervalSince1970: Double($0.updatedAt))),
                 city: getPtBR($0.city),
                 country: getPtBR($0.country)
             )}
