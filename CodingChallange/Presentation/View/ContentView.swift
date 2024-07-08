@@ -45,7 +45,9 @@ struct ContentView: View {
             }
         }
         .onAppear{
-            vm.requestPremierLeagueData()
+            Task {
+                await vm.requestPremierLeagueData()
+            }
         }
         .padding()
     }

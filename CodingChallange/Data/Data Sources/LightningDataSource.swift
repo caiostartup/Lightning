@@ -33,7 +33,7 @@ public class LightningDataSource: LightningRepository {
         return Endpoint(url: URL(target: target).absoluteString, sampleResponseClosure: {.networkResponse(200, target.sampleData)}, method: target.method, task: target.task, httpHeaderFields: target.headers)
     })
     
-    public func getConections() -> AnyPublisher<[Connectivity], Error> {
+    public func getConections() -> Future<[Connectivity], Error> {
         Future<[Connectivity], Error> { [self] promise in
             provider.requestPublisher(.connectivity)
                 .sink(receiveCompletion: { completion in
@@ -52,7 +52,7 @@ public class LightningDataSource: LightningRepository {
                     }
                 })
                 .store(in: &LightningDataSource.cancelables)
-        }.eraseToAnyPublisher()
+        }
     }
     
 }

@@ -30,9 +30,9 @@
 		F011DC682C3B2D2000883FCB /* CodingChallangeIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC672C3B2D2000883FCB /* CodingChallangeIntegrationTests.swift */; };
 		F011DC6B2C3B3AC000883FCB /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC6A2C3B3AC000883FCB /* ErrorModel.swift */; };
 		F011DC6D2C3B3B2F00883FCB /* ConnectivityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC6C2C3B3B2F00883FCB /* ConnectivityVM.swift */; };
-		F011DC742C3B47ED00883FCB /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = F011DC732C3B47ED00883FCB /* Hero */; };
 		F011DC762C3B4A8100883FCB /* ConnectivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC752C3B4A8100883FCB /* ConnectivityRow.swift */; };
 		F011DC782C3B532700883FCB /* ConnectivityDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC772C3B532700883FCB /* ConnectivityDetail.swift */; };
+		F011DC7B2C3B6BEB00883FCB /* GetConnectionsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011DC7A2C3B6BEB00883FCB /* GetConnectionsUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +74,7 @@
 		F011DC6C2C3B3B2F00883FCB /* ConnectivityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityVM.swift; sourceTree = "<group>"; };
 		F011DC752C3B4A8100883FCB /* ConnectivityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityRow.swift; sourceTree = "<group>"; };
 		F011DC772C3B532700883FCB /* ConnectivityDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityDetail.swift; sourceTree = "<group>"; };
+		F011DC7A2C3B6BEB00883FCB /* GetConnectionsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConnectionsUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +85,6 @@
 				F011DC532C3B1E5F00883FCB /* Alamofire in Frameworks */,
 				F011DC4D2C3B1C8700883FCB /* Moya in Frameworks */,
 				F011DC4B2C3B1C8700883FCB /* CombineMoya in Frameworks */,
-				F011DC742C3B47ED00883FCB /* Hero in Frameworks */,
 				F011DC552C3B1E5F00883FCB /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,7 +133,9 @@
 		F011DC152C39D7E900883FCB /* CodingChallange */ = {
 			isa = PBXGroup;
 			children = (
+				F011DC792C3B6BD700883FCB /* Domain */,
 				F011DC452C3B0FCB00883FCB /* Presentation */,
+				F011DC652C3B285A00883FCB /* ConnectivityVH.swift */,
 				F011DC402C3B0DFF00883FCB /* Data */,
 				F011DC1C2C39D7EC00883FCB /* Preview Content */,
 				F011DC162C39D7E900883FCB /* CodingChallangeApp.swift */,
@@ -208,7 +210,6 @@
 		F011DC452C3B0FCB00883FCB /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				F011DC652C3B285A00883FCB /* ConnectivityVH.swift */,
 				F011DC462C3B0FD900883FCB /* ViewModel */,
 				F011DC412C3B0E2400883FCB /* View */,
 			);
@@ -248,6 +249,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F011DC792C3B6BD700883FCB /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F011DC7A2C3B6BEB00883FCB /* GetConnectionsUseCase.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -269,7 +278,6 @@
 				F011DC4C2C3B1C8700883FCB /* Moya */,
 				F011DC522C3B1E5F00883FCB /* Alamofire */,
 				F011DC542C3B1E5F00883FCB /* Swinject */,
-				F011DC732C3B47ED00883FCB /* Hero */,
 			);
 			productName = CodingChallange;
 			productReference = F011DC132C39D7E900883FCB /* CodingChallange.app */;
@@ -352,7 +360,6 @@
 				F011DC472C3B1B6100883FCB /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F011DC482C3B1BA600883FCB /* XCRemoteSwiftPackageReference "Swinject" */,
 				F011DC492C3B1C8700883FCB /* XCRemoteSwiftPackageReference "Moya" */,
-				F011DC722C3B47ED00883FCB /* XCRemoteSwiftPackageReference "Hero" */,
 			);
 			productRefGroup = F011DC142C39D7E900883FCB /* Products */;
 			projectDirPath = "";
@@ -407,6 +414,7 @@
 				F011DC6D2C3B3B2F00883FCB /* ConnectivityVM.swift in Sources */,
 				F011DC662C3B285A00883FCB /* ConnectivityVH.swift in Sources */,
 				F011DC6B2C3B3AC000883FCB /* ErrorModel.swift in Sources */,
+				F011DC7B2C3B6BEB00883FCB /* GetConnectionsUseCase.swift in Sources */,
 				F011DC642C3B279800883FCB /* LightningRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -764,14 +772,6 @@
 				minimumVersion = 15.0.3;
 			};
 		};
-		F011DC722C3B47ED00883FCB /* XCRemoteSwiftPackageReference "Hero" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/HeroTransitions/Hero.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.6.3;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -809,11 +809,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F011DC492C3B1C8700883FCB /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
-		};
-		F011DC732C3B47ED00883FCB /* Hero */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F011DC722C3B47ED00883FCB /* XCRemoteSwiftPackageReference "Hero" */;
-			productName = Hero;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

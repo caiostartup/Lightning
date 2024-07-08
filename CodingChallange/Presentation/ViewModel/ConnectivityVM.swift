@@ -28,27 +28,20 @@ class ConnectivityVM: ObservableObject {
     
     @Published var connectivities : [ConnectivityVH] = []
     @Published var loading = false
+    @Published var error: String? = nil
     
-    private var repository: LightningRepository = LightningDataSource()
+    private var getConnectionsUC = GetConnectionsUseCase()
     
-    public func requestPremierLeagueData() {
-        print("RECEIVE VALUE COMPLETED")
+    public func requestPremierLeagueData() async {
         loading = true
-        repository.getConections()
-            .sink(receiveCompletion: { result in
-                
-            }, receiveValue: { [self] values in
+        do {
+            let fetchedData = try await getConnectionsUC.getConections()
+            await MainActor.run {
                 loading = false
-                self.connectivities = values.map({ ConnectivityVH(
-                    publicKey: $0.publicKey,
-                    alias: $0.alias,
-                    channels: $0.channels,
-                    capacity: $0.capacity,
-                    firstSeen: $0.firstSeen,
-                    updatedAt: $0.updatedAt,
-                    city: $0.city,
-                    country: $0.country
-                )})
-            }).store(in: &cancelable)
+                connectivities = fetchedData
+            }
+        } catch {
+            self.error = error.localizedDescription
+        }
     }
 }

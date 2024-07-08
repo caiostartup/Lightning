@@ -39,20 +39,20 @@ struct ConnectivityVH: Hashable, Identifiable {
     let channels: Int
     
 //    * capacity: A quantidade de Bitcoin (em sats) que o node possui nos canais.
-    let capacity: Int
+    let capacity: Double
     
 //    * firstSeen: A data e hora de quando esse node se tornou público.
-    let firstSeen: Int
+    let firstSeen: String
     
 //    * updatedAt: A data e hora de quando as informações do node foram atualizadas pela última vez.
-    let updatedAt: Int
+    let updatedAt: String
         
 //    * city: A cidade onde esse node está localizado (pode não existir).
 //    * No idioma do nome da cidade e país, utiliza o pt-BR se disponível, caso contrário, use en. Não é necessário suportar internacionalização.
-    let city: [String: String]?
+    let city: String
         
 //    * country: O país onde esse node está localizado.
-    let country: [String: String]?
+    let country: String
     
     public static func mockConnectivity() -> ConnectivityVH {
         ConnectivityVH(
@@ -60,10 +60,10 @@ struct ConnectivityVH: Hashable, Identifiable {
             alias: "alias",
             channels: 111,
             capacity: 222,
-            firstSeen: 1121212121,
-            updatedAt: 1212121,
-            city: [:],
-            country: [:]
+            firstSeen: "10/10/2000",
+            updatedAt: "10/10/2000",
+            city: "Brasil",
+            country: "Brasil"
         )
     }
     

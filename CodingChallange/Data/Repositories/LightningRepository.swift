@@ -24,6 +24,6 @@ import Combine
 
 protocol LightningRepository {
     
-    func getConections() -> AnyPublisher<[Connectivity], Error>
+    func getConections() -> Future<[Connectivity], Error>
 
 }

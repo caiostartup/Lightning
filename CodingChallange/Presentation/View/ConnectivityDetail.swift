@@ -57,9 +57,9 @@ struct ConnectivityDetail: View {
                 Divider()
                 ConnectivityDetailRow(title: "Updated at", desc: String(connectivity.updatedAt))
                 Divider()
-                ConnectivityDetailRow(title: "City", desc: "São Paulo")
+                ConnectivityDetailRow(title: "City", desc: connectivity.city)
                 Divider()
-                ConnectivityDetailRow(title: "Country", desc: "Brasil")
+                ConnectivityDetailRow(title: "Country", desc: connectivity.country)
                 Divider()
             }
             .padding()
