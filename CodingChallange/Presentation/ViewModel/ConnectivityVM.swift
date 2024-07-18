@@ -21,6 +21,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class ConnectivityVM: ObservableObject {
     
@@ -28,14 +29,15 @@ class ConnectivityVM: ObservableObject {
     
     @Published var connectivities : [ConnectivitySH] = []
     @Published var loading = false
+//    @State var sort = false
     @Published var error: String? = nil
     
     private var getConnectionsUC = GetConnectionsUseCase()
     
-    public func requestPremierLeagueData() async {
+    public func requestPremierLeagueData(_ sort: Bool = false) async {
         loading = true
         do {
-            let fetchedData = try await getConnectionsUC.getConections()
+            let fetchedData = try await getConnectionsUC.getConections(sort)
             await MainActor.run {
                 loading = false
                 connectivities = fetchedData

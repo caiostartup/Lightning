@@ -24,34 +24,42 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var vm = ConnectivityVM()
+    @State var sort = false
     
     var body: some View {
         VStack {
-            if vm.loading {
-                ProgressView()
-            } else {
-                NavigationSplitView {
-                    List(vm.connectivities) { connectivity in
-                        NavigationLink {
-                            ConnectivityDetail(connectivity: connectivity)
-                        } label: {
-                            ConnectivityRow(connectivity: connectivity)
-                        }
+            NavigationSplitView {
+                Toggle(isOn: $sort) {
+                    Text("Ordenar por Capacity")
+                }.onChange(of: sort) { oldValue, newValue in
+                    Task {
+                        await vm.requestPremierLeagueData(newValue)
                     }
-                    .refreshable {
-                        Task {
-                            await vm.requestPremierLeagueData()
-                        }
-                    }
-                    .navigationTitle("Lightning")
-                } detail: {
-                    Text("Selecione")
                 }
+                List(vm.connectivities) { connectivity in
+                    NavigationLink {
+                        ConnectivityDetail(connectivity: connectivity)
+                    } label: {
+                        ConnectivityRow(connectivity: connectivity)
+                    }
+                }
+                .refreshable {
+                    Task {
+                        await vm.requestPremierLeagueData(sort)
+                    }
+                }
+                .navigationTitle("Lightning")
+                if vm.loading {
+                    ProgressView()
+                }
+                
+            } detail: {
+                Text("Selecione")
             }
-        }
-        .onAppear{
+            
+        }.onAppear{
             Task {
-                await vm.requestPremierLeagueData()
+                await vm.requestPremierLeagueData(sort)
             }
         }
         .padding()

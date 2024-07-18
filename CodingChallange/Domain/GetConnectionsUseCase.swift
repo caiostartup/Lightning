@@ -37,10 +37,9 @@ struct GetConnectionsUseCase {
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
     }
     
-    func getConections() async throws -> [ConnectivitySH] {
-        try await repository.getConections()
+    func getConections(_ sort: Bool = false) async throws -> [ConnectivitySH] {
+        var cons = try await repository.getConections()
             .value
-            .sorted { $0.capacity > $1.capacity }
             .map { ConnectivitySH(
                 publicKey: $0.publicKey,
                 alias: $0.alias,
@@ -51,6 +50,10 @@ struct GetConnectionsUseCase {
                 city: getPtBR($0.city),
                 country: getPtBR($0.country)
             )}
+        if(sort){
+            return cons.sorted { $0.capacity > $1.capacity }
+        }
+        return cons
     }
     
     private func getPtBR(_ lang: [String: String]?) -> String {
